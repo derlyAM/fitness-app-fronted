@@ -1,0 +1,26 @@
+# Flutter
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+
+# Android
+android/.gradle/
+android/captures/
+android/local.properties
+
+# Misc
+.DS_Store
+*.log
+venv/
+.env
+
+fronted_guide.md
+.claude
