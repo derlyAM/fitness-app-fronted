@@ -30,9 +30,9 @@ class SesionesProvider extends ChangeNotifier {
   }
 
   Future<bool> createSesion(
-      int rutinaId, int usuarioId, int? duracion, String? notas) async {
+      int rutinaId, int? duracion, String? notas) async {
     try {
-      final nueva = await _api.createSesion(rutinaId, usuarioId, duracion, notas);
+      final nueva = await _api.createSesion(rutinaId, duracion, notas);
       _sesiones.add(nueva);
       notifyListeners();
       return true;

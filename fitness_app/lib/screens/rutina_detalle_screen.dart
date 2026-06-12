@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import '../providers/rutinas_provider.dart';
 import '../providers/sesiones_provider.dart';
 import '../providers/deportes_provider.dart';
-import '../providers/auth_provider.dart';
 import '../models/rutina.dart';
 
 class RutinaDetalleScreen extends StatefulWidget {
@@ -26,7 +25,6 @@ class _RutinaDetalleScreenState extends State<RutinaDetalleScreen> {
   Widget build(BuildContext context) {
     final rutinas = context.watch<RutinasProvider>();
     final sesiones = context.read<SesionesProvider>();
-    final auth = context.read<AuthProvider>();
 
     return Scaffold(
       appBar: AppBar(
@@ -103,7 +101,6 @@ class _RutinaDetalleScreenState extends State<RutinaDetalleScreen> {
                 if (result != null && context.mounted) {
                   await sesiones.createSesion(
                     _rutina.id,
-                    auth.usuario!.id,
                     result['duracion'],
                     result['notas'],
                   );

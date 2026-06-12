@@ -100,9 +100,9 @@ class ApiService {
   }
 
   Future<Rutina> createRutina(
-      String nombre, String? descripcion, int deporteId, int usuarioId) async {
+      String nombre, String? descripcion, int deporteId) async {
     final response = await http.post(
-      Uri.parse('$baseUrl/api/rutinas/?usuario_id=$usuarioId'),
+      Uri.parse('$baseUrl/api/rutinas/'),
       headers: _headers,
       body: jsonEncode({'nombre': nombre, 'descripcion': descripcion, 'deporte_id': deporteId}),
     );
@@ -135,9 +135,9 @@ class ApiService {
   }
 
   Future<Sesion> createSesion(
-      int rutinaId, int usuarioId, int? duracion, String? notas) async {
+      int rutinaId, int? duracion, String? notas) async {
     final response = await http.post(
-      Uri.parse('$baseUrl/api/sesiones/?usuario_id=$usuarioId'),
+      Uri.parse('$baseUrl/api/sesiones/'),
       headers: _headers,
       body: jsonEncode({'rutina_id': rutinaId, 'duracion': duracion, 'notas': notas}),
     );

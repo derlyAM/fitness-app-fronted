@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/rutinas_provider.dart';
-import '../providers/auth_provider.dart';
 import '../models/deporte.dart';
 
 class RutinaCreateScreen extends StatefulWidget {
@@ -24,13 +23,11 @@ class _RutinaCreateScreenState extends State<RutinaCreateScreen> {
 
   Future<void> _crear() async {
     final deporte = ModalRoute.of(context)!.settings.arguments as Deporte;
-    final auth = context.read<AuthProvider>();
     final rutinas = context.read<RutinasProvider>();
     final success = await rutinas.createRutina(
       _nombreController.text.trim(),
       _descripcionController.text.trim(),
       deporte.id,
-      auth.usuario!.id,
     );
     if (success && mounted) Navigator.pop(context);
   }

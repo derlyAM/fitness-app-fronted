@@ -34,9 +34,9 @@ class RutinasProvider extends ChangeNotifier {
   }
 
   Future<bool> createRutina(
-      String nombre, String? descripcion, int deporteId, int usuarioId) async {
+      String nombre, String? descripcion, int deporteId) async {
     try {
-      final nueva = await _api.createRutina(nombre, descripcion, deporteId, usuarioId);
+      final nueva = await _api.createRutina(nombre, descripcion, deporteId);
       _rutinas.add(nueva);
       notifyListeners();
       return true;
